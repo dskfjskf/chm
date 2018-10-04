@@ -1,0 +1,4 @@
+﻿  metod.cpp
+c:\users\user\desktop\clr_test_12\metod.cpp(27): warning C4715: 'metod::f': not all control paths return a value
+  CLR_Test.vcxproj -> C:\Users\user\Desktop\CLR_Test_12\Debug\CLR_Test.exe
+  CLR_Test.vcxproj -> C:\Users\user\Desktop\CLR_Test_12\Debug\CLR_Test.pdb (Full PDB)
