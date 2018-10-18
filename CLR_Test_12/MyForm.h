@@ -673,7 +673,7 @@ namespace CLR_Test {
 		dataGridView1->Rows[0]->Cells[6]->Value = a.geth();
 		
 		f1_list->Add(a.getx(), a.getv());
-		f3_list->Add(a.getz(), a.getv());			//22222
+		f3_list->Add(a.getv(), a.getz());			//22222
 
 		if (num == 0)
 		{
@@ -698,7 +698,7 @@ namespace CLR_Test {
 			dataGridView1->Rows[i]->Cells[8]->Value = a.getc2();	
 		
 			f1_list->Add(a.getx(), a.getv());
-			f3_list->Add(a.getz(), a.getv());			//22222
+			f3_list->Add( a.getv(),a.getz());			//22222
 
 			if (num == 0)
 			{
