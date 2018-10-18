@@ -82,6 +82,10 @@ namespace CLR_Test {
 	private: System::Windows::Forms::Label^  label15;
 	private: System::Windows::Forms::GroupBox^  groupBox3;
 	private: ZedGraph::ZedGraphControl^  zedGraphControl1;
+	private: System::Windows::Forms::TextBox^  textBox7;
+	private: System::Windows::Forms::TextBox^  textBox8;
+	private: System::Windows::Forms::Label^  label16;
+	private: ZedGraph::ZedGraphControl^  zedGraphControl2;
 	private: System::ComponentModel::IContainer^  components;
 
 
@@ -113,6 +117,7 @@ namespace CLR_Test {
 			this->ge = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->label4 = (gcnew System::Windows::Forms::Label());
@@ -126,6 +131,8 @@ namespace CLR_Test {
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
+			this->textBox8 = (gcnew System::Windows::Forms::TextBox());
+			this->label16 = (gcnew System::Windows::Forms::Label());
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
@@ -139,6 +146,7 @@ namespace CLR_Test {
 			this->label15 = (gcnew System::Windows::Forms::Label());
 			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
 			this->zedGraphControl1 = (gcnew ZedGraph::ZedGraphControl());
+			this->zedGraphControl2 = (gcnew ZedGraph::ZedGraphControl());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->groupBox1->SuspendLayout();
 			this->groupBox2->SuspendLayout();
@@ -153,9 +161,9 @@ namespace CLR_Test {
 				this->i, this->x,
 					this->v, this->v2, this->vv2, this->olp, this->h, this->c1, this->c2, this->u, this->ge
 			});
-			this->dataGridView1->Location = System::Drawing::Point(287, 12);
+			this->dataGridView1->Location = System::Drawing::Point(348, 12);
 			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->Size = System::Drawing::Size(762, 224);
+			this->dataGridView1->Size = System::Drawing::Size(701, 224);
 			this->dataGridView1->TabIndex = 0;
 			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MyForm::dataGridView1_CellContentClick);
 			// 
@@ -227,7 +235,7 @@ namespace CLR_Test {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(109, 337);
+			this->button1->Location = System::Drawing::Point(140, 337);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(75, 23);
 			this->button1->TabIndex = 1;
@@ -237,6 +245,7 @@ namespace CLR_Test {
 			// 
 			// groupBox1
 			// 
+			this->groupBox1->Controls->Add(this->textBox7);
 			this->groupBox1->Controls->Add(this->textBox6);
 			this->groupBox1->Controls->Add(this->textBox5);
 			this->groupBox1->Controls->Add(this->label4);
@@ -253,15 +262,24 @@ namespace CLR_Test {
 				static_cast<System::Byte>(204)));
 			this->groupBox1->Location = System::Drawing::Point(12, 12);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(269, 195);
+			this->groupBox1->Size = System::Drawing::Size(318, 195);
 			this->groupBox1->TabIndex = 2;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Параметры";
 			this->groupBox1->Enter += gcnew System::EventHandler(this, &MyForm::groupBox1_Enter);
 			// 
+			// textBox7
+			// 
+			this->textBox7->Location = System::Drawing::Point(273, 27);
+			this->textBox7->Name = L"textBox7";
+			this->textBox7->Size = System::Drawing::Size(37, 21);
+			this->textBox7->TabIndex = 9;
+			this->textBox7->Visible = false;
+			this->textBox7->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox7_TextChanged);
+			// 
 			// textBox6
 			// 
-			this->textBox6->Location = System::Drawing::Point(178, 162);
+			this->textBox6->Location = System::Drawing::Point(187, 159);
 			this->textBox6->Name = L"textBox6";
 			this->textBox6->Size = System::Drawing::Size(37, 21);
 			this->textBox6->TabIndex = 8;
@@ -269,7 +287,7 @@ namespace CLR_Test {
 			// 
 			// textBox5
 			// 
-			this->textBox5->Location = System::Drawing::Point(178, 135);
+			this->textBox5->Location = System::Drawing::Point(187, 132);
 			this->textBox5->Name = L"textBox5";
 			this->textBox5->ReadOnly = true;
 			this->textBox5->Size = System::Drawing::Size(37, 21);
@@ -281,7 +299,7 @@ namespace CLR_Test {
 			this->label4->AutoSize = true;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label4->Location = System::Drawing::Point(6, 138);
+			this->label4->Location = System::Drawing::Point(6, 135);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(19, 15);
 			this->label4->TabIndex = 3;
@@ -289,7 +307,7 @@ namespace CLR_Test {
 			// 
 			// textBox4
 			// 
-			this->textBox4->Location = System::Drawing::Point(178, 83);
+			this->textBox4->Location = System::Drawing::Point(187, 80);
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->Size = System::Drawing::Size(37, 21);
 			this->textBox4->TabIndex = 6;
@@ -297,7 +315,7 @@ namespace CLR_Test {
 			// 
 			// textBox3
 			// 
-			this->textBox3->Location = System::Drawing::Point(178, 54);
+			this->textBox3->Location = System::Drawing::Point(187, 54);
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(37, 21);
 			this->textBox3->TabIndex = 4;
@@ -307,7 +325,7 @@ namespace CLR_Test {
 			this->label3->AutoSize = true;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label3->Location = System::Drawing::Point(6, 86);
+			this->label3->Location = System::Drawing::Point(6, 83);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(120, 15);
 			this->label3->TabIndex = 2;
@@ -318,7 +336,7 @@ namespace CLR_Test {
 			this->label5->AutoSize = true;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label5->Location = System::Drawing::Point(6, 165);
+			this->label5->Location = System::Drawing::Point(6, 162);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(123, 15);
 			this->label5->TabIndex = 4;
@@ -327,14 +345,14 @@ namespace CLR_Test {
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(221, 27);
+			this->textBox2->Location = System::Drawing::Point(230, 27);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(37, 21);
 			this->textBox2->TabIndex = 3;
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(178, 27);
+			this->textBox1->Location = System::Drawing::Point(187, 27);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(37, 21);
 			this->textBox1->TabIndex = 2;
@@ -345,7 +363,7 @@ namespace CLR_Test {
 			this->checkBox1->AutoSize = true;
 			this->checkBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->checkBox1->Location = System::Drawing::Point(6, 110);
+			this->checkBox1->Location = System::Drawing::Point(6, 107);
 			this->checkBox1->Name = L"checkBox1";
 			this->checkBox1->RightToLeft = System::Windows::Forms::RightToLeft::Yes;
 			this->checkBox1->Size = System::Drawing::Size(227, 19);
@@ -376,9 +394,12 @@ namespace CLR_Test {
 			this->label1->Size = System::Drawing::Size(166, 15);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Начальные условия (x0,u0):";
+			this->label1->Click += gcnew System::EventHandler(this, &MyForm::label1_Click);
 			// 
 			// groupBox2
 			// 
+			this->groupBox2->Controls->Add(this->textBox8);
+			this->groupBox2->Controls->Add(this->label16);
 			this->groupBox2->Controls->Add(this->label7);
 			this->groupBox2->Controls->Add(this->label6);
 			this->groupBox2->Controls->Add(this->comboBox1);
@@ -386,10 +407,30 @@ namespace CLR_Test {
 				static_cast<System::Byte>(204)));
 			this->groupBox2->Location = System::Drawing::Point(12, 213);
 			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Size = System::Drawing::Size(269, 118);
+			this->groupBox2->Size = System::Drawing::Size(318, 118);
 			this->groupBox2->TabIndex = 9;
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"Задача";
+			// 
+			// textBox8
+			// 
+			this->textBox8->Location = System::Drawing::Point(209, 54);
+			this->textBox8->Name = L"textBox8";
+			this->textBox8->Size = System::Drawing::Size(37, 21);
+			this->textBox8->TabIndex = 10;
+			this->textBox8->Visible = false;
+			this->textBox8->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox8_TextChanged);
+			// 
+			// label16
+			// 
+			this->label16->AutoSize = true;
+			this->label16->Location = System::Drawing::Point(186, 57);
+			this->label16->Name = L"label16";
+			this->label16->Size = System::Drawing::Size(17, 15);
+			this->label16->TabIndex = 13;
+			this->label16->Text = L"A:";
+			this->label16->Visible = false;
+			this->label16->Click += gcnew System::EventHandler(this, &MyForm::label16_Click);
 			// 
 			// label7
 			// 
@@ -513,7 +554,7 @@ namespace CLR_Test {
 				static_cast<System::Byte>(204)));
 			this->groupBox3->Location = System::Drawing::Point(12, 366);
 			this->groupBox3->Name = L"groupBox3";
-			this->groupBox3->Size = System::Drawing::Size(269, 237);
+			this->groupBox3->Size = System::Drawing::Size(318, 237);
 			this->groupBox3->TabIndex = 19;
 			this->groupBox3->TabStop = false;
 			this->groupBox3->Text = L"Выходные данные";
@@ -521,7 +562,7 @@ namespace CLR_Test {
 			// 
 			// zedGraphControl1
 			// 
-			this->zedGraphControl1->Location = System::Drawing::Point(372, 255);
+			this->zedGraphControl1->Location = System::Drawing::Point(348, 242);
 			this->zedGraphControl1->Name = L"zedGraphControl1";
 			this->zedGraphControl1->ScrollGrace = 0;
 			this->zedGraphControl1->ScrollMaxX = 0;
@@ -530,15 +571,32 @@ namespace CLR_Test {
 			this->zedGraphControl1->ScrollMinX = 0;
 			this->zedGraphControl1->ScrollMinY = 0;
 			this->zedGraphControl1->ScrollMinY2 = 0;
-			this->zedGraphControl1->Size = System::Drawing::Size(620, 348);
+			this->zedGraphControl1->Size = System::Drawing::Size(386, 348);
 			this->zedGraphControl1->TabIndex = 20;
 			this->zedGraphControl1->Load += gcnew System::EventHandler(this, &MyForm::zedGraphControl1_Load);
+			// 
+			// zedGraphControl2
+			// 
+			this->zedGraphControl2->Location = System::Drawing::Point(740, 270);
+			this->zedGraphControl2->Name = L"zedGraphControl2";
+			this->zedGraphControl2->ScrollGrace = 0;
+			this->zedGraphControl2->ScrollMaxX = 0;
+			this->zedGraphControl2->ScrollMaxY = 0;
+			this->zedGraphControl2->ScrollMaxY2 = 0;
+			this->zedGraphControl2->ScrollMinX = 0;
+			this->zedGraphControl2->ScrollMinY = 0;
+			this->zedGraphControl2->ScrollMinY2 = 0;
+			this->zedGraphControl2->Size = System::Drawing::Size(309, 276);
+			this->zedGraphControl2->TabIndex = 21;
+			this->zedGraphControl2->Visible = false;
+			this->zedGraphControl2->Load += gcnew System::EventHandler(this, &MyForm::zedGraphControl2_Load);
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1061, 612);
+			this->Controls->Add(this->zedGraphControl2);
 			this->Controls->Add(this->zedGraphControl1);
 			this->Controls->Add(this->groupBox3);
 			this->Controls->Add(this->groupBox2);
@@ -578,6 +636,16 @@ namespace CLR_Test {
 		double h = Convert::ToDouble(textBox3->Text);
 		double x = x0;
 		double v = u0, v2=u0;
+	
+		double z= 0;		//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		double coeff = 0;			//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+		if (num == 2)		//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		{
+			z = Convert::ToDouble(textBox7->Text);
+			coeff = Convert::ToDouble(textBox8->Text);
+		}
+
 		double eps = -1;
 		if (checkBox1->Checked == true)
 			eps = Convert::ToDouble(textBox5->Text);
@@ -585,14 +653,18 @@ namespace CLR_Test {
 		int nmax = Convert::ToInt64(textBox6->Text);	
 
 		GraphPane^ panel = zedGraphControl1->GraphPane;
+		GraphPane^ panel2 = zedGraphControl2->GraphPane;			//2222
 		panel->CurveList->Clear();
+		panel2->CurveList->Clear();					//22222
 		PointPairList^ f1_list = gcnew ZedGraph::PointPairList();
 		PointPairList^ f2_list = gcnew ZedGraph::PointPairList();
+		PointPairList^ f3_list = gcnew ZedGraph::PointPairList();		//22222
 
 		double xmin = x0;
 		double xmax = b;
 
-		metod a(x0, u0, h, eps, num);
+	//	metod a(x0, u0, h, eps, num);
+		metod a(x0, u0, h, eps, num, z,coeff);			//!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 		dataGridView1->Rows->Add();
 		dataGridView1->Rows[0]->Cells[0]->Value = a.getn();
@@ -601,6 +673,7 @@ namespace CLR_Test {
 		dataGridView1->Rows[0]->Cells[6]->Value = a.geth();
 		
 		f1_list->Add(a.getx(), a.getv());
+		f3_list->Add(a.getz(), a.getv());			//22222
 
 		if (num == 0)
 		{
@@ -610,7 +683,9 @@ namespace CLR_Test {
 
 		for (int i = 1; i < nmax+1 && a.getx()<b; i++)
 		{
-			a.calc();
+			if (num==2) 
+				a.calc3();		//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			else a.calc();
 			dataGridView1->Rows->Add();
 			dataGridView1->Rows[i]->Cells[0]->Value = a.getn();
 			dataGridView1->Rows[i]->Cells[1]->Value = a.getx();
@@ -623,6 +698,7 @@ namespace CLR_Test {
 			dataGridView1->Rows[i]->Cells[8]->Value = a.getc2();	
 		
 			f1_list->Add(a.getx(), a.getv());
+			f3_list->Add(a.getz(), a.getv());			//22222
 
 			if (num == 0)
 			{
@@ -633,6 +709,7 @@ namespace CLR_Test {
 		}	
 
 		LineItem Curve1 = panel->AddCurve("f(x)", f1_list, Color::Red, SymbolType::None);
+		LineItem Curve3 = panel2->AddCurve("f(x)", f3_list, Color::Green, SymbolType::None);		//2222222222222222
 		
 		if (num == 0) 
 			LineItem Curve2 = panel->AddCurve("u(x)", f2_list, Color::Blue, SymbolType::Plus);
@@ -645,6 +722,16 @@ namespace CLR_Test {
 		zedGraphControl1->AxisChange();
 		
 		zedGraphControl1->Invalidate();
+
+
+		panel2->XAxis->Scale->Min = x0;				//2
+		panel2->XAxis->Scale->Max = a.getz();
+
+		panel2->YAxis->Scale->Min = u0;
+		panel2->YAxis->Scale->Max = a.getv();
+		zedGraphControl2->AxisChange();
+
+		zedGraphControl2->Invalidate();					//2
 	
 		label8->Text = "n=" + a.getn();
 		label9->Text = "b-xn=" + (b - Convert::ToDouble(dataGridView1->Rows[a.getn()]->Cells[1]->Value));
@@ -667,6 +754,11 @@ private: System::Void comboBox1_SelectedIndexChanged(System::Object^  sender, Sy
 			dataGridView1->Columns[10]->Visible = true;
 			dataGridView1->Columns[9]->Visible = true;
 			label13->Visible = true;
+			textBox7->Visible = false;
+			label1->Text = "Начальные условия (x0,u0):";
+			label16->Visible = false;
+			textBox8->Visible = false;
+			zedGraphControl2->Visible = false;
 		}
 		else
 		{
@@ -678,11 +770,21 @@ private: System::Void comboBox1_SelectedIndexChanged(System::Object^  sender, Sy
 			{
 				label6->Text = "u'=u^2/(2x+x^2)+u-u^3sin(10x)";
 				label7->Text = "u(0)=u0";
+				textBox7->Visible = false;
+				label1->Text = "Начальные условия (x0,u0):";
+				label16->Visible = false;
+				textBox8->Visible = false;
+				zedGraphControl2->Visible = false;
 			}
 			else
 			{
-				label6->Text = "u''+" + textBox1->Text + "((u')^2+1)^(1/2)";
+				label6->Text = "u''+A((u')^2+1)^(1/2)=0";
 				label7->Text = "u(0)=u0;      u'(0)=u0'";
+				label1->Text = "Начальные условия (x0,u0,u0'):";
+				textBox7->Visible = true;
+				label16->Visible = true;
+				textBox8->Visible = true;
+				zedGraphControl2->Visible = true;
 			}
 		}
 	}
@@ -708,5 +810,10 @@ private: System::Void label14_Click(System::Object^  sender, System::EventArgs^ 
 private: System::Void label15_Click(System::Object^  sender, System::EventArgs^  e) {}
 private: System::Void label13_Click(System::Object^  sender, System::EventArgs^  e) {}
 private: System::Void groupBox3_Enter(System::Object^  sender, System::EventArgs^  e) {}
+private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {}
+private: System::Void textBox7_TextChanged(System::Object^  sender, System::EventArgs^  e) {}
+private: System::Void label16_Click(System::Object^  sender, System::EventArgs^  e) {}
+private: System::Void textBox8_TextChanged(System::Object^  sender, System::EventArgs^  e) {}
+private: System::Void zedGraphControl2_Load(System::Object^  sender, System::EventArgs^  e) {}
 };
 }
