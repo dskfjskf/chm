@@ -274,6 +274,7 @@ namespace CLR_Test {
 			this->textBox7->Name = L"textBox7";
 			this->textBox7->Size = System::Drawing::Size(37, 21);
 			this->textBox7->TabIndex = 9;
+			this->textBox7->Text = L"1";
 			this->textBox7->Visible = false;
 			this->textBox7->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox7_TextChanged);
 			// 
@@ -283,6 +284,7 @@ namespace CLR_Test {
 			this->textBox6->Name = L"textBox6";
 			this->textBox6->Size = System::Drawing::Size(37, 21);
 			this->textBox6->TabIndex = 8;
+			this->textBox6->Text = L"100";
 			this->textBox6->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox6_TextChanged);
 			// 
 			// textBox5
@@ -311,6 +313,7 @@ namespace CLR_Test {
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->Size = System::Drawing::Size(37, 21);
 			this->textBox4->TabIndex = 6;
+			this->textBox4->Text = L"5";
 			this->textBox4->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox4_TextChanged);
 			// 
 			// textBox3
@@ -319,6 +322,7 @@ namespace CLR_Test {
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(37, 21);
 			this->textBox3->TabIndex = 4;
+			this->textBox3->Text = L"0,01";
 			// 
 			// label3
 			// 
@@ -349,6 +353,7 @@ namespace CLR_Test {
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(37, 21);
 			this->textBox2->TabIndex = 3;
+			this->textBox2->Text = L"1";
 			// 
 			// textBox1
 			// 
@@ -356,6 +361,7 @@ namespace CLR_Test {
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(37, 21);
 			this->textBox1->TabIndex = 2;
+			this->textBox1->Text = L"0";
 			this->textBox1->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox1_TextChanged_1);
 			// 
 			// checkBox1
@@ -418,6 +424,7 @@ namespace CLR_Test {
 			this->textBox8->Name = L"textBox8";
 			this->textBox8->Size = System::Drawing::Size(37, 21);
 			this->textBox8->TabIndex = 10;
+			this->textBox8->Text = L"1";
 			this->textBox8->Visible = false;
 			this->textBox8->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox8_TextChanged);
 			// 
@@ -637,10 +644,10 @@ namespace CLR_Test {
 		double x = x0;
 		double v = u0, v2=u0;
 	
-		double z= 0;		//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		double coeff = 0;			//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		double z= 0;		
+		double coeff = 0;			
 
-		if (num == 2)		//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		if (num == 2)		
 		{
 			z = Convert::ToDouble(textBox7->Text);
 			coeff = Convert::ToDouble(textBox8->Text);
@@ -653,18 +660,20 @@ namespace CLR_Test {
 		int nmax = Convert::ToInt64(textBox6->Text);	
 
 		GraphPane^ panel = zedGraphControl1->GraphPane;
-		GraphPane^ panel2 = zedGraphControl2->GraphPane;			//2222
 		panel->CurveList->Clear();
-		panel2->CurveList->Clear();					//22222
 		PointPairList^ f1_list = gcnew ZedGraph::PointPairList();
 		PointPairList^ f2_list = gcnew ZedGraph::PointPairList();
-		PointPairList^ f3_list = gcnew ZedGraph::PointPairList();		//22222
+		panel->XAxis->Title->Text = "x";
+		panel->YAxis->Title->Text = "U";
 
-		double xmin = x0;
-		double xmax = b;
+		GraphPane^ panel2 = zedGraphControl2->GraphPane;			
+		panel2->CurveList->Clear();	
+		PointPairList^ f3_list = gcnew ZedGraph::PointPairList();				
+		panel2->XAxis->Title->Text = "U";
+		panel2->YAxis->Title->Text = "U'";	
 
-	//	metod a(x0, u0, h, eps, num);
-		metod a(x0, u0, h, eps, num, z,coeff);			//!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+		metod a(x0, u0, h, eps, num, z,coeff);			
 
 		dataGridView1->Rows->Add();
 		dataGridView1->Rows[0]->Cells[0]->Value = a.getn();
@@ -672,8 +681,7 @@ namespace CLR_Test {
 		dataGridView1->Rows[0]->Cells[2]->Value = a.getv();
 		dataGridView1->Rows[0]->Cells[6]->Value = a.geth();
 		
-		f1_list->Add(a.getx(), a.getv());
-		f3_list->Add(a.getv(), a.getz());			//22222
+		f1_list->Add(a.getx(), a.getv());	
 
 		if (num == 0)
 		{
@@ -684,8 +692,9 @@ namespace CLR_Test {
 		for (int i = 1; i < nmax+1 && a.getx()<b; i++)
 		{
 			if (num==2) 
-				a.calc3();		//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+				a.calc3();		
 			else a.calc();
+
 			dataGridView1->Rows->Add();
 			dataGridView1->Rows[i]->Cells[0]->Value = a.getn();
 			dataGridView1->Rows[i]->Cells[1]->Value = a.getx();
@@ -698,40 +707,25 @@ namespace CLR_Test {
 			dataGridView1->Rows[i]->Cells[8]->Value = a.getc2();	
 		
 			f1_list->Add(a.getx(), a.getv());
-			f3_list->Add( a.getv(),a.getz());			//22222
-
+	
 			if (num == 0)
 			{
 				dataGridView1->Rows[i]->Cells[9]->Value = a.getu();
 				dataGridView1->Rows[i]->Cells[10]->Value = a.getge();
 				f2_list->Add(a.getx(), a.getu());
 			}
-		}	
+		}
 
-		LineItem Curve1 = panel->AddCurve("f(x)", f1_list, Color::Red, SymbolType::None);
-		LineItem Curve3 = panel2->AddCurve("f(x)", f3_list, Color::Green, SymbolType::None);		//2222222222222222
-		
+		LineItem Curve1 = panel->AddCurve("f(x)", f1_list, Color::Red, SymbolType::None);		
 		if (num == 0) 
 			LineItem Curve2 = panel->AddCurve("u(x)", f2_list, Color::Blue, SymbolType::Plus);
 			
 		panel->XAxis->Scale->Min = x0;
-		panel->XAxis->Scale->Max = a.getx();
-		
+		panel->XAxis->Scale->Max = a.getx();		
 		panel->YAxis->Scale->Min = u0;
 		panel->YAxis->Scale->Max = a.getv();
-		zedGraphControl1->AxisChange();
-		
-		zedGraphControl1->Invalidate();
-
-
-		panel2->XAxis->Scale->Min = x0;				//2
-		panel2->XAxis->Scale->Max = a.getz();
-
-		panel2->YAxis->Scale->Min = u0;
-		panel2->YAxis->Scale->Max = a.getv();
-		zedGraphControl2->AxisChange();
-
-		zedGraphControl2->Invalidate();					//2
+		zedGraphControl1->AxisChange();		
+		zedGraphControl1->Invalidate();		
 	
 		label8->Text = "n=" + a.getn();
 		label9->Text = "b-xn=" + (b - Convert::ToDouble(dataGridView1->Rows[a.getn()]->Cells[1]->Value));
@@ -742,6 +736,31 @@ namespace CLR_Test {
 		label12->Text = "min hi=" + a.getminh() + "   при х=" + a.getxminh();
 		label13->Text = "max |ui-vi|=" + a.getmaxge()+"   при х=" + a.getmaxxge();
 
+		
+
+		for (int i = -4; i<5; i += 2)
+
+			for (int k = -4; k < 5; k += 2)
+			{
+				metod aa(0, i, h, eps, num, k, coeff);
+
+				for (int j = 0; j < 100; j++)
+				{
+					aa.calc3();
+					f3_list->Add(aa.getv(), aa.getz());
+				}
+			}
+		
+		LineItem Curve3 = panel2->AddCurve("f(x)", f3_list, Color::Green, SymbolType::None);
+
+		panel2->XAxis->Scale->Min = -1;				
+		panel2->XAxis->Scale->Max = 1;
+
+		panel2->YAxis->Scale->Min = -1;
+		panel2->YAxis->Scale->Max = 1;
+		zedGraphControl2->AxisChange();
+
+		zedGraphControl2->Invalidate();					
 	}
 private: System::Void textBox1_TextChanged(System::Object^  sender, System::EventArgs^  e) {}
 private: System::Void groupBox1_Enter(System::Object^  sender, System::EventArgs^  e) {}
