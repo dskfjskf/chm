@@ -28,12 +28,20 @@ metod::metod(double x0, double u0, double ih, double ieps, int inum, double z0, 
 	}
 	else 
 	{
-		k = 1;
-		double s2 = (RK(x, v, h, z) - RK(x + h / 2, v12, h / 2, RK(x, v, h / 2, z))) / 15.0;
 		k = 0;
-		double nextz12 = RK(x, v, h / 2, z);
-		double s1 = (RK(x, v, h, z) - RK(x + h / 2, RK(x, v, h / 2, z), h / 2, nextz12)) / 15.0;
+		v12n = RK(x, v, h / 2, z);
+
+		k = 1;
+		z12n = RK(x, v, h / 2, z);
+		double s1, s2;
+		k = 0;
+		s1 = abs(RK(x, v, h, z) - RK(x + h / 2, v12n, h / 2, z12n)) / 15.0;
+
+		k = 1;
+		s2 = abs(RK(x, v, h, z) - RK(x + h / 2, v12n, h / 2, z12n)) / 15.0;
+
 		s = std::max(s1, s2);
+
 		curh3();		//корриктеровка первого шага 2 осн	
 	}	
 }
@@ -102,7 +110,7 @@ void metod::calc()
 	
 	v2 = RK(x + h / 2, RK(x, v, h / 2), h / 2);	
 	v = RK(x, v, h);
-	x += h;		// 1 осн					
+	x += h;							
 
 	if (num == 0)
 	{
@@ -145,11 +153,18 @@ void metod::curh3()
 		{
 			h /= 2;
 
-			k = 1;
-			double s2 = (RK(x, v, h, z) - RK(x + h / 2, v12, h / 2, RK(x, v, h / 2, z))) / 15.0;
 			k = 0;
-			double nextz12 = RK(x, v, h / 2, z);
-			double s1 = (RK(x, v, h, z) - RK(x + h / 2, RK(x, v, h / 2, z), h / 2, nextz12)) / 15.0;
+			v12n = RK(x, v,h / 2, z);
+
+			k = 1;
+			z12n = RK(x, v,h / 2, z);
+			double s1, s2;
+			k = 0;
+			s1 = abs(RK(x, v, h, z) - RK(x + h / 2, v12n, h / 2, z12n)) / 15.0;
+
+			k = 1;
+			s2 = abs(RK(x, v, h, z) - RK(x + h / 2, v12n, h / 2, z12n)) / 15.0;
+
 			s = std::max(s1, s2);
 
 			c1++;
@@ -168,32 +183,52 @@ void metod::calc3()
 {
 	n++;
 	
+	k = 0;
+	v12 = RK(x, v, h / 2, z);
+
 	k = 1;
 	z12 = RK(x, v, h / 2, z);
-	z2 = RK(x + h / 2, v12, h / 2, z12);
+
 	k = 0;
-	v12 = RK(x, v, h / 2, z);	
-	v2 = RK(x + h / 2,v12, h / 2, z12);	
-	v = RK(x, v, h, z);	
+	v2 = RK(x + h / 2, v12, h / 2, z12);
+
 	k = 1;
-	z = RK(x, v, h, z);	
+	z2 = RK(x + h / 2, v12, h / 2, z12);
+
+	k = 0;
+	vprev = v;
+	v = RK(x, v, h, z);
+
+	k = 1;
+	z = RK(x, vprev, h, z);
+	
 	x += h;
 
-	double s2 = (RK(x, v, nexth, z)- RK(x + nexth / 2, v12, nexth / 2, RK(x, v, nexth / 2, z)))/15.0;
-
+	ss1 = abs(v - v2) / 15.0;		
+	ss2 = abs(z - z2) / 15.0;
+	
 	k = 0;
-	double nextz12= RK(x, v, nexth / 2, z);
-	double s1 = (RK(x, v, nexth, z) - RK(x + nexth / 2, RK(x, v, nexth / 2, z), nexth / 2, nextz12)) / 15.0;
+	v12n = RK(x, v, nexth / 2, z);
+
+	k = 1;
+	z12n = RK(x, v, nexth / 2, z);
+	double s1, s2;
+	k = 0;
+	s1 = abs(RK(x, v, nexth, z) - RK(x + nexth / 2, v12n, nexth / 2, z12n)) / 15.0;
+
+	k = 1;
+	s2 = abs(RK(x, v, nexth, z) - RK(x + nexth / 2, v12n, nexth / 2, z12n)) / 15.0;
 
 	s = std::max(s1, s2);
 	c2 = c2next;	
 
 	curh3();	
+	
+	if (ss1 > ss2)
+		s = ss1;
+	else s = ss2;
 
-	s1 = abs(v - v2) / 15.0;
-	s2 = abs(z - z2) / 15.0;
-	s = std::max(s1,s2);
-	e = s * 16;
+	e = s * 16;	
 
 	if (e > maxe)
 		maxe = e;

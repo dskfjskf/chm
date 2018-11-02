@@ -11,7 +11,7 @@ ref class metod
 	int n, c1, c2,c2next, num;
 	double x, v, v2, s, eps, e, u, h, ge, nexth;
 	double maxh, minh, xmaxh, xminh, maxe, maxge, maxxge;
-	double coeff, z,z2, v12,z12;
+	double coeff, z,z2, v12,z12, ss1,ss2, vprev, v12n, z12n;
 	int k;
 
 	double f(double ix, double iu);

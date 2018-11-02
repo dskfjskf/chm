@@ -740,63 +740,63 @@ namespace CLR_Test {
 		label13->Text = "max |ui-vi|=" + a.getmaxge()+"   при х=" + a.getmaxxge();
 
 		
-		if (num == 2) {
-			//for (int i = -4; i < 5; i += 2)
+		//if (num == 2) {
+		//	for (int i = -4; i < 5; i += 2)
 
-			//	for (int k = -4; k < 5; k += 2)
-			//	{
-			//		metod aa(0, i, h, eps, num, k, coeff);
+		//		for (int k = -4; k < 5; k += 2)
+		//		{
+		//			metod aa(0, i, h, eps, num, k, coeff);
 
-			//		for (int j = 0; j < 100; j++)
-			//		{
-			//			aa.calc3();
-			//			f3_list->Add(aa.getv(), aa.getz());
-			//		}
-			//	}
+		//			for (int j = 0; j < 100; j++)
+		//			{
+		//				aa.calc3();
+		//				f3_list->Add(aa.getv(), aa.getz());
+		//			}
+		//		}
 
-			metod aa(0, 100, h, eps, num, 100, coeff);
+		//	metod aa(0, 100, h, eps, num, 100, coeff);
 
-			for (int j = 0; j < 1000; j++)
-			{
-				aa.calc3();
-				f3_list->Add(aa.getv(), aa.getz());
-			}
-			metod ab(0, -0.5, h, eps, num, 1, coeff);
+		//	for (int j = 0; j < 1000; j++)
+		//	{
+		//		aa.calc3();
+		//		f3_list->Add(aa.getv(), aa.getz());
+		//	}
+		//	metod ab(0, -0.5, h, eps, num, 1, coeff);
 
-			for (int j = 0; j < 1000; j++)
-			{
-				ab.calc3();
-				f4_list->Add(ab.getv(), ab.getz());
-			}
-			metod ac(0, 0, h, eps, num, 1, coeff);
+		//	for (int j = 0; j < 1000; j++)
+		//	{
+		//		ab.calc3();
+		//		f4_list->Add(ab.getv(), ab.getz());
+		//	}
+		//	metod ac(0, 0, h, eps, num, 1, coeff);
 
-			for (int j = 0; j < 1000; j++)
-			{
-				ac.calc3();
-				f5_list->Add(ac.getv(), ac.getz());
-			}
-			metod ad(0, 0.5, h, eps, num, 1, coeff);
+		//	for (int j = 0; j < 1000; j++)
+		//	{
+		//		ac.calc3();
+		//		f5_list->Add(ac.getv(), ac.getz());
+		//	}
+		//	metod ad(0, 0.5, h, eps, num, 1, coeff);
 
-			for (int j = 0; j < 1000; j++)
-			{
-				ad.calc3();
-				f6_list->Add(ad.getv(), ad.getz());
-			}
+		//	for (int j = 0; j < 1000; j++)
+		//	{
+		//		ad.calc3();
+		//		f6_list->Add(ad.getv(), ad.getz());
+		//	}
 
-			LineItem Curve3 = panel2->AddCurve("f(x)", f3_list, Color::Green, SymbolType::None);
-			LineItem Curve4 = panel2->AddCurve("f(x)", f4_list, Color::Green, SymbolType::None);
-			LineItem Curve5 = panel2->AddCurve("f(x)", f5_list, Color::Green, SymbolType::None);
-			LineItem Curve6 = panel2->AddCurve("f(x)", f6_list, Color::Green, SymbolType::None);
+		//	LineItem Curve3 = panel2->AddCurve("f(x)", f3_list, Color::Green, SymbolType::None);
+		//	LineItem Curve4 = panel2->AddCurve("f(x)", f4_list, Color::Green, SymbolType::None);
+		//	LineItem Curve5 = panel2->AddCurve("f(x)", f5_list, Color::Green, SymbolType::None);
+		//	LineItem Curve6 = panel2->AddCurve("f(x)", f6_list, Color::Green, SymbolType::None);
 
-			panel2->XAxis->Scale->Min = -10;
-			panel2->XAxis->Scale->Max = 10;
+		//	panel2->XAxis->Scale->Min = -10;
+		//	panel2->XAxis->Scale->Max = 10;
 
-			panel2->YAxis->Scale->Min = -10;
-			panel2->YAxis->Scale->Max = 10;
-			zedGraphControl2->AxisChange();
+		//	panel2->YAxis->Scale->Min = -10;
+		//	panel2->YAxis->Scale->Max = 10;
+		//	zedGraphControl2->AxisChange();
 
-			zedGraphControl2->Invalidate();
-		}
+		//	zedGraphControl2->Invalidate();
+		//}
 	}
 private: System::Void textBox1_TextChanged(System::Object^  sender, System::EventArgs^  e) {}
 private: System::Void groupBox1_Enter(System::Object^  sender, System::EventArgs^  e) {}
