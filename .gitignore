@@ -39,3 +39,6 @@
 *.log
 *.lastbuidstate
 *.user
+*.cache
+*.xml
+*.asm
