@@ -1,7 +1,0 @@
-﻿  MyForm.cpp
-c:\users\user\desktop\chm\clr_test_12\MyForm.h(660): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
-  metod.cpp
-  Generating Code...
-c:\users\user\desktop\chm\clr_test_12\metod.cpp(62): warning C4715: 'metod::f': not all control paths return a value
-  CLR_Test.vcxproj -> C:\Users\user\Desktop\chm\CLR_Test_12\Debug\CLR_Test.exe
-  CLR_Test.vcxproj -> C:\Users\user\Desktop\chm\CLR_Test_12\Debug\CLR_Test.pdb (Full PDB)
