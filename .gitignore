@@ -13,7 +13,7 @@
 # Compiled Dynamic libraries
 *.so
 *.dylib
-*.dll
+
 
 # Fortran module files
 *.mod
@@ -40,5 +40,5 @@
 *.lastbuidstate
 *.user
 *.cache
-*.xml
+
 *.asm
