@@ -738,33 +738,31 @@ namespace CLR_Test {
 		label11->Text = "max hi=" + a.getmaxh() + "   при х=" + a.getxmaxh();
 		label12->Text = "min hi=" + a.getminh() + "   при х=" + a.getxminh();
 		label13->Text = "max |ui-vi|=" + a.getmaxge()+"   при х=" + a.getmaxxge();
-
 		
-		if (num == 2) {			
-			
-			metod aa(0, -30, h, eps, num, 50, coeff);
+		if (num == 2) {	
 
+			metod aa(0, -30, h, eps, num, 50, coeff);
 			for (int j = 0; j < 1000; j++)
 			{
 				aa.calc3();
 				f3_list->Add(aa.getv(), aa.getz());
 			}
-			metod ab(0, -20, h, eps, num,50, coeff);
 
+			metod ab(0, -20, h, eps, num,50, coeff);
 			for (int j = 0; j < 1000; j++)
 			{
 				ab.calc3();
 				f4_list->Add(ab.getv(), ab.getz());
 			}
-			metod ac(0, -10, h, eps, num,50, coeff);
 
+			metod ac(0, -10, h, eps, num,50, coeff);
 			for (int j = 0; j < 1000; j++)
 			{
 				ac.calc3();
 				f5_list->Add(ac.getv(), ac.getz());
 			}
-			metod ad(0, 0, h, eps, num, 50, coeff);
 
+			metod ad(0, 0, h, eps, num, 50, coeff);
 			for (int j = 0; j < 1000; j++)
 			{
 				ad.calc3();

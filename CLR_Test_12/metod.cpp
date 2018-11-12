@@ -24,7 +24,7 @@ metod::metod(double x0, double u0, double ih, double ieps, int inum, double z0, 
 	if (num != 2)
 	{
 		s = abs(RK(x, v, h) - RK(x + h / 2, RK(x, v, h / 2), h / 2)) / 15.0;
-		curh();			//корриктеровка первого шага тестовой и 1 осн
+		curh();			//корректировка первого шага тестовой и 1 осн
 	}
 	else 
 	{
@@ -42,7 +42,7 @@ metod::metod(double x0, double u0, double ih, double ieps, int inum, double z0, 
 
 		s = std::max(s1, s2);
 
-		curh3();		//корриктеровка первого шага 2 осн	
+		curh3();		//корректировка первого шага 2 осн	
 	}	
 }
 
